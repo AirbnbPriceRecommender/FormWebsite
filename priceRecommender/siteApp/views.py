@@ -8,14 +8,16 @@ from .models import AirbnbRequest, Amenities , AirbnbRequestForm
 
 
 def index(request):
+    form = AirbnbRequestForm()
+    return render(request, 'siteApp/index.html', {'form': form})
+
+
+def processForm(request):
     if request.method == 'POST':
         form = AirbnbRequestForm(request.POST)
         if form.is_valid():
             return HttpResponse("GoodJobBoy!")
-    else:
-        form = AirbnbRequestForm()
 
-    return render(request, 'siteApp/index.html', {'form': form})
 
 
 # def detail(request, question_id):

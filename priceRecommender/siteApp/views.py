@@ -5,18 +5,16 @@ from django.core.urlresolvers import reverse
 from .models import AirbnbRequest, Amenities , AirbnbRequestForm
 # Create your views here.
 
-
-
 def index(request):
     form = AirbnbRequestForm()
     return render(request, 'siteApp/index.html', {'form': form})
-
 
 def processForm(request):
     if request.method == 'POST':
         form = AirbnbRequestForm(request.POST)
         if form.is_valid():
             return HttpResponse("GoodJobBoy!")
+
 
 
 

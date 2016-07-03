@@ -14,7 +14,7 @@
     </section>
 
 <section class="main-content">
-    <form method="post" action="/processForm/">
+    <form method="post" action="index">
          {% csrf_token %}
          {{ form.as_p }}
          <input type="submit" value="Submit" />

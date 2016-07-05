@@ -1,19 +1,28 @@
+from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
+from django.core import validators
 
-from .models import AirbnbRequest, Amenities , AirbnbRequestForm
+from .models import AirbnbRequest, Amenities
+from .forms import AirbnbRequestForm
+import xgboostPrediction as ap
 # Create your views here.
 
 def index(request):
-    form = AirbnbRequestForm()
-    return render(request, 'siteApp/index.html', {'form': form})
-
-def processForm(request):
     if request.method == 'POST':
         form = AirbnbRequestForm(request.POST)
         if form.is_valid():
-            return HttpResponse("GoodJobBoy!")
+            price = ap.SiteappPythonBack.getPrediction(form)
+            return HttpResponse("GoodJobBoy you price is!",price,"yay!")
+        else:
+            raise ValidationError('Invalid value', code='invalid')
+    else:
+        form = AirbnbRequestForm()
+        return render(request, 'siteApp/index.html', {'form': form})
+
+#def processForm(request):
+
 
 
 

@@ -13,13 +13,103 @@
       <h2 class="project-tagline">we try to recommend you the best price!</h2>
     </section>
 
-<section class="main-content">
-    <form method="post" action="index">
-         {% csrf_token %}
-         {{ form.as_p }}
-         <input type="submit" value="Submit" />
-    </form>
-</section>
+    <section class="main-content">
+        <form method="post">{% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="fieldWrapper">
+                {{ form.name.errors }}
+                <label for="{{ form.name.id_for_label }}">Your name:</label>
+                {{ form.name }}
+            </div>
+            <h2>Where it's located ? </h2>
+            <p>
+            <div class="fieldWrapper">
+                {{ form.latitude.errors }}
+                <label for="{{ form.latitude.id_for_label }}">Latitude:</label>
+                {{ form.latitude }}
+            </div>
+            </p>
+            <p>
+            <div class="fieldWrapper">
+                {{ form.longitude.errors }}
+                <label for="{{ form.longitude.id_for_label }}">Longitude:</label>
+                {{ form.longitude }}
+            </div>
+            </p>
+            <p>
+            <div class="fieldWrapper">
+                {{ form.neighborhood.errors }}
+                <label for="{{ form.bedrooms.id_for_label }}">Neighborhood:</label>
+                {{ form.neighborhood }}
+            </div>
+            </p>
+            <h2>Some Apartment Stuff </h2>
+            <p>
+            <div class="fieldWrapper">
+                {{ form.accomodates.errors }}
+                <label for="{{ form.accomodates.id_for_label }}">Number of accomodates:</label>
+                {{ form.accomodates }}
+            </div>
+            </p>
+            <p>
+            <div class="fieldWrapper">
+                {{ form.bathrooms.errors }}
+                <label for="{{ form.bathrooms.id_for_label }}">Number of bathrooms:</label>
+                {{ form.bathrooms }}
+            </div>
+            </p>
+            <p>
+            <div class="fieldWrapper">
+                {{ form.bedrooms.errors }}
+                <label for="{{ form.bedrooms.id_for_label }}">Number of bedrooms:</label>
+                {{ form.bedrooms }}
+            </div>
+            </p>
+            <p>
+            <div class="fieldWrapper">
+                {{ form.beds.errors }}
+                <label for="{{ form.beds.id_for_label }}">Number of beds:</label>
+                {{ form.beds }}
+            </div>
+            </p>
+             <p>
+             <div class="fieldWrapper">
+                {{ form.guestsIncluded.errors }}
+                <label for="{{ form.guestsIncluded.id_for_label }}">GuestsIncluded:</label>
+                {{ form.guestsIncluded }}
+            </div>
+            </p>
+            <p>
+             <div class="fieldWrapper">
+                {{ form.cancellationPolicy.errors }}
+                <label for="{{ form.cancellationPolicy.id_for_label }}">Cancellation policy:</label>
+                {{ form.cancellationPolicy }}
+            </div>
+            </p>
+            <p>
+             <div class="fieldWrapper">
+                {{ form.typeOfRoom.errors }}
+                <label for="{{ form.typeOfRoom.id_for_label }}">Type of Room:</label>
+                {{ form.typeOfRoom }}
+            </div>
+            </p>
+            <p>
+             <div class="fieldWrapper">
+                {{ form.typeOfBed.errors }}
+                <label for="{{ form.typeOfBed.id_for_label }}">Type of Bed:</label>
+                {{ form.typeOfBed }}
+            </div>
+            </p>
+            <p>
+             <div class="fieldWrapper">
+                {{ form.entireApartament.errors }}
+                <label for="{{ form.entireApartament.id_for_label }}">Entire apartment </label>
+                {{ form.entireApartament }}
+            </div>
+            </p>
+             <input type="submit" value="Submit" />
+        </form>
+    </section>
 
 </body>
 

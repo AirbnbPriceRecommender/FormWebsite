@@ -6,6 +6,7 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="{% static 'siteApp/stylesheet.css' %}" media="screen">
 <link rel="stylesheet" type="text/css" href="{% static 'siteApp/github-light.css' %}" media="screen">
+<link rel="stylesheet" type="text/css" href="{% static 'siteApp/github-light.css' %}" media="screen">
 
 <body>
     <section class="page-header">
@@ -107,7 +108,20 @@
                 {{ form.entireApartament }}
             </div>
             </p>
-             <input type="submit" value="Submit" />
+             <p>
+             <div class="fieldWrapper">
+                {{ form.apartamentType.errors }}
+                <label for="{{ form.apartamentType.id_for_label }}">Apartment type </label>
+                {{ form.apartamentType }}
+            </div>
+            </p>
+            <p>
+             <div class="fieldWrapper">
+                <label>Select tags </label>
+                <div id="amenities"></div>
+            </div>
+            </p>
+             <input type="submit" value="Submit" onclick="runFunction()" />
         </form>
     </section>
 

@@ -16,7 +16,7 @@ class AirbnbRequestForm(forms.Form):
     bedrooms = forms.IntegerField()
     beds = forms.IntegerField()
     guestsIncluded = forms.IntegerField()
-    entireApartament = forms.BooleanField()
+    entireApartament = forms.BooleanField(required=False)
 
 
     #selectors
@@ -25,10 +25,11 @@ class AirbnbRequestForm(forms.Form):
     apartamentType = forms.IntegerField()
     typeOfRoom = forms.IntegerField()
     typeOfBed = forms.IntegerField()
+    Amenities = []
 
     #not in the form items
-    pub_date = forms.DateTimeField('date published')
-    finalRecomendedPrice = forms.DecimalField(decimal_places=2, max_digits=8)
+    pub_date = forms.DateTimeField('date published', required=False)
+    finalRecomendedPrice = forms.DecimalField(decimal_places=2, max_digits=8, required=False)
 
 
 class Amenities(forms.Form):

@@ -11,6 +11,7 @@ class AirbnbRequestForm(forms.Form):
 
     latitude = forms.CharField(max_length=20)
     longitude = forms.CharField(max_length=20)
+
     accomodates = forms.IntegerField()
     bathrooms = forms.IntegerField()
     bedrooms = forms.IntegerField()
@@ -22,7 +23,8 @@ class AirbnbRequestForm(forms.Form):
     #selectors
     neighborhood = forms.ChoiceField([('1','nono'), ('2','nip'),('3','patata')])
     cancellationPolicy = forms.IntegerField()
-    apartamentType = forms.IntegerField()
+    #TODO search for the asciicode for the ny and the ampersand
+    apartamentType = forms.ChoiceField([('0','Selecciona'),('1','Apartamento'),('2','Casa'),('3','Bed and Breakfast'),('4','Adosado'),('5','Autocaravana'),('6','Barco'),('7','Bungalow'),('8','Cabana'),('9','Chalet'),('10','Dormitorio compartido'),('11','Loft'),('12','Tienda de campana'),('13','Villa'),('14','Otros')])
     typeOfRoom = forms.IntegerField()
     typeOfBed = forms.IntegerField()
     Amenities = []

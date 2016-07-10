@@ -11,6 +11,7 @@
 <script src="{% static 'siteApp/staticJavascript.js' %}"></script>
 <body>
     <section class="page-header">
+        <a href="https://github.com/priceRecommender/FormWebsite" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
       <h1 class="project-name">Price Recommender Form</h1>
       <h2 class="project-tagline">we try to recommend you the best price!</h2>
     </section>
@@ -20,9 +21,11 @@
             {{ form.non_field_errors }}
             <p>
             <div class="fieldWrapper">
-                {{ form.name.errors }}
                 <label for="{{ form.name.id_for_label }}">Your name:</label>
                 {{ form.name }}
+                {% for err in form.name.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
             </p>
             <p>
@@ -34,94 +37,127 @@
             <h2>Where it's located ? </h2>
             <p>
             <div class="fieldWrapper">
-                {{ form.latitude.errors }}
                 <label for="{{ form.latitude.id_for_label }}">Latitude:</label>
                 {{ form.latitude }}
+                 {% for err in form.latitude.errors %}
+                    <span class="error"style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
             </p>
             <p>
             <div class="fieldWrapper">
-                {{ form.longitude.errors }}
                 <label for="{{ form.longitude.id_for_label }}">Longitude:</label>
                 {{ form.longitude }}
+                {% for err in form.longitude.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
             </p>
             <p>
             <div class="fieldWrapper">
-                {{ form.neighborhood.errors }}
                 <label for="{{ form.bedrooms.id_for_label }}">Neighborhood:</label>
                 {{ form.neighborhood }}
+                {% for err in form.neighborhood.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
             </p>
             <h2>Some Apartment Stuff </h2>
             <p>
             <div class="fieldWrapper">
-                {{ form.accomodates.errors }}
                 <label for="{{ form.accomodates.id_for_label }}">Number of accomodates:</label>
                 {{ form.accomodates }}
+                {% for err in form.accomodates.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
             </p>
             <p>
             <div class="fieldWrapper">
-                {{ form.bathrooms.errors }}
                 <label for="{{ form.bathrooms.id_for_label }}">Number of bathrooms:</label>
                 {{ form.bathrooms }}
+                {% for err in form.bathrooms.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
             </p>
             <p>
             <div class="fieldWrapper">
-                {{ form.bedrooms.errors }}
                 <label for="{{ form.bedrooms.id_for_label }}">Number of bedrooms:</label>
                 {{ form.bedrooms }}
+                {% for err in form.bedrooms.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
             </p>
             <p>
             <div class="fieldWrapper">
-                {{ form.beds.errors }}
                 <label for="{{ form.beds.id_for_label }}">Number of beds:</label>
                 {{ form.beds }}
+                {% for err in form.beds.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
             </p>
              <p>
              <div class="fieldWrapper">
-                {{ form.guestsIncluded.errors }}
                 <label for="{{ form.guestsIncluded.id_for_label }}">GuestsIncluded:</label>
                 {{ form.guestsIncluded }}
+                {% for err in form.guestsIncluded.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
             </p>
             <p>
              <div class="fieldWrapper">
-                {{ form.cancellationPolicy.errors }}
                 <label for="{{ form.cancellationPolicy.id_for_label }}">Cancellation policy:</label>
                 {{ form.cancellationPolicy }}
+                {% for err in form.cancellationPolicy.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
             </p>
             <p>
              <div class="fieldWrapper">
-                {{ form.typeOfRoom.errors }}
                 <label for="{{ form.typeOfRoom.id_for_label }}">Type of Room:</label>
                 {{ form.typeOfRoom }}
+                {% for err in form.typeOfRoom.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
             </p>
             <p>
              <div class="fieldWrapper">
-                {{ form.typeOfBed.errors }}
                 <label for="{{ form.typeOfBed.id_for_label }}">Type of Bed:</label>
                 {{ form.typeOfBed }}
+                {% for err in form.typeOfBed.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
-            </p>
-            <p>
+           <!-- </p>
              <div class="fieldWrapper">
-                {{ form.entireApartament.errors }}
                 <label for="{{ form.entireApartament.id_for_label }}">Entire apartment </label>
                 {{ form.entireApartament }}
+                {% for err in form.entireApartament.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
-            </p>
+             <p>-->
+             <div class="fieldWrapper">
+                <label for="{{ form.apartmentDeposit.id_for_label }}">Diposit </label>
+                {{ form.apartmentDeposit }}
+                {% for err in form.apartmentDeposit.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
+            </div>
+             </p>
              <p>
              <div class="fieldWrapper">
-                {{ form.apartamentType.errors }}
                 <label for="{{ form.apartamentType.id_for_label }}">Apartment type </label>
                 {{ form.apartamentType }}
+                {% for err in form.apartamentType.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
             </div>
             </p>
             <p>
@@ -132,6 +168,7 @@
             </p>
             <input type="hidden" id="valuesAmenities" name="valuesAmenities">
             <input type="hidden" id="valuesVerifications" name="valuesVerifications">
+            <input type="hidden" id="valueApartamentDeposit" name="valueApartamentDeposit">
             <input type="submit" value="Submit" onclick="runFunction()" />
         </form>
     </section>

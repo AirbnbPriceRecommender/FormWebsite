@@ -54,4 +54,10 @@ var runFunction = function (){
         }
     });
     $('#valuesVerifications').val(verifications);//.toJSON());
+
+    var output = 0;
+    if($('#id_apartmentDeposit').checked) {
+        output = 1;
+    }
+    $('#valueApartamentDeposit').val(output);//.toJSON());
 }

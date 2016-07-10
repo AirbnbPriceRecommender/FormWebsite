@@ -28,9 +28,12 @@ def index(request):
         if form.is_valid() and secondValidation(form):
             form.amenities = helperTransformation(request.POST['valuesAmenities'])
             form.verificationUser = helperTransformation(request.POST['valuesVerifications'])
+            form.apartmentDeposit = request.POST['valueApartamentDeposit']
             #form.save()
             price = processData(form)
-            return HttpResponseRedirect("GoodJobBoy you price is!",price,"yay!")
+            outputPrice ="{0:.2f}".format(price[0])
+            return render(request, 'siteApp/results.html', {'name': form.data['name'],'price':outputPrice})
+            #return HttpResponseRedirect("GoodJobBoy you price is!",price,"yay!")
         else:
             return render(request, 'siteApp/index.html', {'form': form})
     else:
@@ -94,7 +97,7 @@ def createJSONString(form):
                  0,0,0,0,0,
                  0,0,0,form.data['cancellationPolicy'],form.data['bathrooms'],
                  form.data['bedrooms'],form.data['beds'],form.data['accomodates'],form.data['guestsIncluded'],form.data['bathrooms'],
-                 0)
+                 form.apartmentDeposit)
     xAmenities = pseudoOneHotEncodingJSONAmenities(stringAmenities,form.amenities)
     xVerification = pseudoOneHotEncodingJSONVerifications(stringVerifications,form.verificationUser)
     xNeighborhoods = pseudoOneHotEncodingJSON(stringNeighborhoods,(int(form.data['neighborhood'])-1))

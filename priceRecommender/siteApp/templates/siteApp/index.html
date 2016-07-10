@@ -18,11 +18,19 @@
     <section class="main-content">
         <form method="post">{% csrf_token %}
             {{ form.non_field_errors }}
+            <p>
             <div class="fieldWrapper">
                 {{ form.name.errors }}
                 <label for="{{ form.name.id_for_label }}">Your name:</label>
                 {{ form.name }}
             </div>
+            </p>
+            <p>
+             <div class="fieldWrapper">
+                <label>Select Verifications </label>
+                <div id="verifications"></div>
+            </div>
+            </p>
             <h2>Where it's located ? </h2>
             <p>
             <div class="fieldWrapper">
@@ -123,7 +131,8 @@
             </div>
             </p>
             <input type="hidden" id="valuesAmenities" name="valuesAmenities">
-             <input type="submit" value="Submit" onclick="runFunction()" />
+            <input type="hidden" id="valuesVerifications" name="valuesVerifications">
+            <input type="submit" value="Submit" onclick="runFunction()" />
         </form>
     </section>
 

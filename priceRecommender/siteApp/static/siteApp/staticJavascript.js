@@ -11,7 +11,7 @@ $(document).ready(function () {
     'Doorman', 'Cat(s)', 'Wheelchair Accessible', 'Dog(s)', 'Carbon Monoxide Detector', 'Gym', 'Washer / Dryer', 'Pool'];
     $('#amenities').append("<table>");
     $.each(values,function(index,value){
-        if(index%4== 0){
+        if(index%5== 0){
             $('#amenities').append("<td>");
         }
         var item = value;
@@ -23,6 +23,16 @@ $(document).ready(function () {
         }
     });
     $('#amenities').append("</table>");
+
+    var values =['email','phone','facebook','linkedin','google','jumio','reviews','manual'];
+    $('#verifications').append("<table>");
+    $.each(values,function(index,value){
+        var item = value;
+        var $newInput = "<input id='"+item+"-input' type='checkbox' value='"+item+"'>"+item+"</input>   " ;
+        $('#verifications').append($newInput);
+    });
+    $('#verifications').append("</table>");
+
 });
 
 
@@ -37,4 +47,11 @@ var runFunction = function (){
     });
     $('#valuesAmenities').val(amenities);//.toJSON());
 
+    var verifications = [];
+    $('#verifications > input').each(function(){
+        if(this.checked){
+            verifications+="["+this.value+"],"
+        }
+    });
+    $('#valuesVerifications').val(verifications);//.toJSON());
 }

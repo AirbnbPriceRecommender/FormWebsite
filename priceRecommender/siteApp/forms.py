@@ -15,7 +15,7 @@ class AirbnbRequestForm(forms.Form):
     latitude = forms.CharField(max_length=20)
     longitude = forms.CharField(max_length=20)
 
-    accomodates = forms.IntegerField(min_value=1,max_value=12)
+    accomodates = forms.IntegerField(min_value=1,max_value=100)
     bathrooms = forms.IntegerField(min_value=0,max_value=12)
     bedrooms = forms.IntegerField(min_value=1, max_value=12)
     beds = forms.IntegerField(min_value=1, max_value=22)

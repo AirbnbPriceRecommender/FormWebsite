@@ -33,6 +33,31 @@ $(document).ready(function () {
     });
     $('#verifications').append("</table>");
 
+     /*$( "#datepicker" ).datepicker({
+      numberOfMonths: 3,
+      showButtonPanel: true,
+      createButton:false,
+      displayClose:false,
+      closeOnSelect:false,
+      selectMultiple:true
+    });*/
+
+     $( "#datepicker" ).multiDatesPicker({
+         minDate: 0,
+         numberOfMonths: 2,
+         inline: true,
+         dayNamesMin: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat','Sun'],
+         beforeShow: function(){
+           $(".ui-datepicker").css('font-size', 12)
+         },
+         onSelect: function(dateText, inst) {
+             var value = $('#datepickerValues').val();
+             value = value + "[" + dateText +"],"
+             $("input[name='datepickerValues']").val(value);
+         },
+         dateFormat: "dd-mm-yy",
+         multiple : true
+     });
 });
 
 

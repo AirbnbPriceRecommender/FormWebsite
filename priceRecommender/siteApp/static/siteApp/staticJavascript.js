@@ -42,7 +42,7 @@ $(document).ready(function () {
       selectMultiple:true
     });*/
 
-     $( "#datepicker" ).multiDatesPicker({
+     /*$( "#datepicker" ).multiDatesPicker({
          minDate: 0,
          numberOfMonths: 2,
          inline: true,
@@ -57,7 +57,7 @@ $(document).ready(function () {
          },
          dateFormat: "dd-mm-yy",
          multiple : true
-     });
+     });*/
 });
 
 
@@ -85,4 +85,22 @@ var runFunction = function (){
         output = 1;
     }
     $('#valueApartamentDeposit').val(output);//.toJSON());
+
+    output = 0;
+    if($('#id_hostAbout').checked) {
+        output = 1;
+    }
+    $('#valuehostAbout').val(output);
+
+    output = 0;
+    if($('#id_hostIdentityVerified').checked) {
+        output = 1;
+    }
+    $('#valuehostIdentityVerified').val(output);
+
+    output = 0;
+    if($('#id_extraPeople').checked) {
+        output = 1;
+    }
+    $('#valueExtraPeople').val(output);
 }

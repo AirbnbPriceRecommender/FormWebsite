@@ -11,12 +11,11 @@
 <script src="{% static 'siteApp/staticJavascript.js' %}"></script>
 <link rel="stylesheet" href="{% static 'jquery-ui/jquery-ui.css' %}">
 <script src="{% static 'jquery-ui/jquery-ui.js' %}"></script>
-<script type="text/javascript" src="http://multidatespickr.sourceforge.net/jquery-ui.multidatespicker.js"></script>
 <body>
     <section class="page-header">
-      <a href="https://github.com/priceRecommender/FormWebsite" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
-      <h1 class="project-name">Price Recommender Form</h1>
-      <h2 class="project-tagline">we try to recommend you the best price!</h2>
+        <a href="https://github.com/priceRecommender/FormWebsite"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+        <h1 class="project-name">Price Recommender Form</h1>
+        <h2 class="project-tagline">we try to recommend you the best price!</h2>
     </section>
 
     <section class="main-content">
@@ -37,39 +36,89 @@
                 <div id="verifications" style="width:70em"></div>
             </div>
             </p>
+            <p>
+            <div class="fieldWrapper">
+                <label for="{{ form.hostIdentityVerified.id_for_label }}">Account verified  </label>
+                {{ form.hostIdentityVerified }}
+                {% for err in form.hostIdentityVerified.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
+            </div>
+            </p>
+            <p>
+            <div class="fieldWrapper">
+                <label for="{{ form.hostAbout.id_for_label }}">Description of user  </label>
+                {{ form.hostAbout }}
+                {% for err in form.hostAbout.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
+            </div>
+            </p>
+             <p>
+            <div class="fieldWrapper">
+                <label for="{{ form.hostListingsCount.id_for_label }}">Total listings of user:</label>
+                {{ form.hostListingsCount }}
+                {% for err in form.hostListingsCount.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
+            </div>
+            </p>
+            <p>
             <h2>Where it's located ? </h2>
             <p>
             <div class="fieldWrapper">
-                <label for="{{ form.latitude.id_for_label }}">Latitude:</label>
-                {{ form.latitude }}
-                 {% for err in form.latitude.errors %}
+                <label for="{{ form.street.id_for_label }}">Street & number:</label>
+                {{ form.street }} {{form.number}}
+                {% for err in form.street.errors %}
+                    <span class="error"style="color:red;">{{ err }}</span>
+                {% endfor %}
+                {% for err in form.number.errors %}
                     <span class="error"style="color:red;">{{ err }}</span>
                 {% endfor %}
             </div>
             </p>
             <p>
             <div class="fieldWrapper">
-                <label for="{{ form.longitude.id_for_label }}">Longitude:</label>
-                {{ form.longitude }}
-                {% for err in form.longitude.errors %}
-                    <span class="error" style="color:red;">{{ err }}</span>
-                {% endfor %}
-            </div>
-            </p>
-            <p>
-            <div class="fieldWrapper">
-                <label for="{{ form.bedrooms.id_for_label }}">Neighborhood:</label>
+                <label for="{{ form.neighborhood.id_for_label }}">Neighborhood:</label>
                 {{ form.neighborhood }}
                 {% for err in form.neighborhood.errors %}
                     <span class="error" style="color:red;">{{ err }}</span>
                 {% endfor %}
             </div>
             </p>
-              <h2>Available dates </h2>
+              <h2>Availability</h2>
              <div class="fieldWrapper">
                 <label id ="dataLabel">Dates available  </label>
-                <div id="datepicker"/>
-                <input type="hidden" id="datepickerValues" name="datepickerValues">
+                 <table>
+                     <tr>
+                         <th>30 days</th>
+                         <th>60 days</th>
+                         <th>90 days</th>
+                         <th>365 days</th>
+                     </tr>
+                     <tr>
+                         <td>{{form.availability30}}</td>
+                         <td>{{form.availability60}}</td>
+                         <td>{{form.availability90}}</td>
+                         <td>{{form.availability365}}</td>
+                     </tr>
+                 </table>
+                 <span class="error" style="color:red;">
+                 {% for err in form.availability30.errors %}
+                    {{ err }}
+                 {% endfor %}
+                     {% for err in form.availability60.errors %}
+                    {{ err }}
+                 {% endfor %}
+                     {% for err in form.availability90.errors %}
+                    {{ err }}
+                 {% endfor %}
+                     {% for err in form.availability365.errors %}
+                    {{ err }}
+                 {% endfor %}
+                 </span>
+                 <!-- <div id="datepicker"/>
+                <input type="hidden" id="datepickerValues" name="datepickerValues">-->
             </div>
             <h2>Some Apartment Stuff </h2>
             <p>
@@ -143,6 +192,7 @@
                     <span class="error" style="color:red;">{{ err }}</span>
                 {% endfor %}
             </div>
+            </p>
            <!-- </p>
              <div class="fieldWrapper">
                 <label for="{{ form.entireApartament.id_for_label }}">Entire apartment </label>
@@ -152,10 +202,20 @@
                 {% endfor %}
             </div>
              <p>-->
+            <p>
              <div class="fieldWrapper">
                 <label for="{{ form.apartmentDeposit.id_for_label }}">Diposit </label>
                 {{ form.apartmentDeposit }}
                 {% for err in form.apartmentDeposit.errors %}
+                    <span class="error" style="color:red;">{{ err }}</span>
+                {% endfor %}
+            </div>
+             </p>
+            <p>
+             <div class="fieldWrapper">
+                <label for="{{ form.extraPeople.id_for_label }}">Extra people </label>
+                {{ form.extraPeople }}
+                {% for err in form.extraPeople.errors %}
                     <span class="error" style="color:red;">{{ err }}</span>
                 {% endfor %}
             </div>
@@ -178,6 +238,9 @@
             <input type="hidden" id="valuesAmenities" name="valuesAmenities">
             <input type="hidden" id="valuesVerifications" name="valuesVerifications">
             <input type="hidden" id="valueApartamentDeposit" name="valueApartamentDeposit">
+            <input type="hidden" id="valuehostAbout" name="valuehostAbout">
+            <input type="hidden" id="valuehostIdentityVerified" name="valuehostIdentityVerified">
+            <input type="hidden" id="valueExtraPeople" name="valueExtraPeople">
             <input type="submit" value="Submit" onclick="runFunction()" />
         </form>
     </section>

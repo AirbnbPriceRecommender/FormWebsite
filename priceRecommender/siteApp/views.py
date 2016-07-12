@@ -4,20 +4,19 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.core import validators
+from django.forms.util import ErrorList
 
-from .models import AirbnbRequest, Amenities
 from .forms import AirbnbRequestForm
 
 ##Datasciense imports , remove when moving the method
-import profile
-import time
+import pandas as pd
+from sklearn.externals import joblib
+from geopy import geocoders
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import xgboost as xgb
-from sklearn.cross_validation import train_test_split
-from sklearn.grid_search import GridSearchCV
-from sklearn.externals import joblib
+from sklearn.neighbors import NearestNeighbors
+from geopy.distance import vincenty #distance of two points on an oblate spheroid
+import cPickle as pickle
 ##
 
 # Create your views here.
@@ -25,17 +24,21 @@ from sklearn.externals import joblib
 def index(request):
     if request.method == 'POST':
         form = AirbnbRequestForm(request.POST)
-        if form.is_valid() and secondValidation(form):
-            form.amenities = helperTransformation(request.POST['valuesAmenities'])
-            form.verificationUser = helperTransformation(request.POST['valuesVerifications'])
-            form.apartmentDeposit = request.POST['valueApartamentDeposit']
-            #form.save()
-            price = processData(form)
-            outputPrice ="{0:.2f}".format(price[0])
-            return render(request, 'siteApp/results.html', {'name': form.data['name'],'price':outputPrice})
-            #return HttpResponseRedirect("GoodJobBoy you price is!",price,"yay!")
-        else:
-            return render(request, 'siteApp/index.html', {'form': form})
+        if form.is_valid():
+            form.latitude, form.longitude = helperTransformationGPS(form.data['street'],form.data['number'])
+            if secondValidation(form):
+                form.amenities = helperTransformation(request.POST['valuesAmenities'])
+                form.verificationUser = helperTransformation(request.POST['valuesVerifications'])
+                form.apartmentDeposit = request.POST['valueApartamentDeposit']
+                form.hostAbout = request.POST['valuehostAbout']
+                form.hostIdentityVerified = request.POST['valuehostIdentityVerified']
+                form.extraPeople = request.POST['valueExtraPeople']
+                #form.save()
+                price = processData(form)
+                outputPrice ="{0:.2f}".format(price[0])
+                return render(request, 'siteApp/results.html', {'name': form.data['name'],'price':outputPrice})
+                #return HttpResponseRedirect("GoodJobBoy you price is!",price,"yay!")
+        return render(request, 'siteApp/index.html', {'form': form})
     else:
         form = AirbnbRequestForm()
         return render(request, 'siteApp/index.html', {'form': form})
@@ -43,11 +46,6 @@ def index(request):
 
 #TODO move to another file
 def processData(formRequest):
-    # cv_params = {'max_depth': [3,5], 'min_child_weight': [3]}
-    # ind_params = {'learning_rate': 0.1, 'n_estimators': 1000, 'subsample': 0.8, 'seed': 0, 'silent': 1 ,'colsample_bytree': 0.8,'objective': 'reg:linear'}
-    # optimized_GBM = GridSearchCV(xgb.XGBClassifier(**ind_params),cv_params,scoring = 'accuracy', cv = 2, n_jobs = -1, verbose=0)
-    # optimized_GBM.fit(X_train, y_train)
-
     optimized_GBM = joblib.load('siteApp/pklObjects/ObjectEncoded.pkl')
     return optimized_GBM.predict(createVectorCaracteristicsNewUser(formRequest))
 
@@ -65,9 +63,20 @@ def helperTransformation(inputString):
     return output
 
 def secondValidation(form):
-    # use this function to test the latitude longitude and other params
+    # Remove when we fix the latitude thing
+    # if form.latitude == 0 or form.longitude == 0 or not checkLatitudeLong(form.latitude,form.longitude):
+    #     errors = form._errors.setdefault("street", ErrorList())
+    #     errors.append(u"Wrong Combination or not from BCN")
+    #     return False
+    if form.latitude == 0 or form.longitude == 0:
+        errors = form._errors.setdefault("street", ErrorList())
+        errors.append(u"Wrong Combination or not from BCN")
+        return False
     return True
 
+
+def helperTransformationGPS(street, number):
+    return get_coordinates(street+" "+number+",Barcelona")
 
 #TODO helpers to move
 
@@ -78,12 +87,10 @@ def createVectorCaracteristicsNewUser(form):
     return final
 
 def createJSONString(form):
-    x = "\"review_scores_rating\":{0},\"reviews_per_month\":{1},\"number_of_reviews\":{2},\"first_review\":{3},\"last_review\":{4}," \
-        "\"street\":{5},\"zipcode\":{6},\"latitude\":{7},\"longitude\":{8},\"host_about\":{9}," \
-        "\"host_since\":{10},\"host_listings_count\":{11},\"host_identity_verified\":{12},\"calendar_updated\":{13},\"availability_30\":{14}," \
-        "\"availability_60\":{15},\"availability_90\":{16},\"availability_365\":{17},\"cancellation_policy\":{18},\"bathrooms\":{19}," \
-        "\"bedrooms\":{20},\"beds\":{21},\"accommodates\":{22},\"guests_included\":{23},\"extra_people\":{24}," \
-        "\"security_deposit\":{25}"
+    x = "\"street\":{0},\"zipcode\":{1},\"latitude\":{2},\"longitude\":{3},\"host_about\":{4}," \
+        "\"host_listings_count\":{5},\"host_identity_verified\":{6},\"availability_30\":{7},\"availability_60\":{8},\"availability_90\":{9}," \
+        "\"availability_365\":{10},\"cancellation_policy\":{11},\"bathrooms\":{12},\"bedrooms\":{13},\"beds\":{14}," \
+        "\"accommodates\":{15},\"guests_included\":{16},\"extra_people\":{17},\"security_deposit\":{18}"
 
     stringAmenities = "tv,internet,kitchen,ac,smoking,hottub,heating,family,events,dryer,smoke,shampoo,elevator,washer,intercom,essentials,lock,24hourcheckin,hangers,laptopf,hairdryer,iron,firstaidkit,cabletv,fireplace,extinguisher,breakfast,pets,petsallowed,parking,safetycard,doorman,wheelchair,carbondetector,gym,washerdryer,pool"
     stringVerifications ="verified_email,verified_phone,verified_facebook,verified_linkedin,verified_google,verified_jumio,verified_reviews,verified_manual"
@@ -92,12 +99,11 @@ def createJSONString(form):
     stringEntireAp = "entire_home_apt,private_room,shared_room"
     stringTypeBed = "airbed,couch,futon,pull-out_sofa,real_bed"
 
-    x = x.format(0,0,0,0,0,
-                 0,0,form.data['latitude'],form.data['longitude'],0,
-                 0,0,0,0,0,
-                 0,0,0,form.data['cancellationPolicy'],form.data['bathrooms'],
-                 form.data['bedrooms'],form.data['beds'],form.data['accomodates'],form.data['guestsIncluded'],form.data['bathrooms'],
-                 form.apartmentDeposit)
+    x = x.format(0, 0, form.latitude, form.longitude, form.hostAbout,
+                 form.data['hostListingsCount'], form.hostIdentityVerified, form.data['availability30'], form.data['availability60'], form.data['availability90'],
+                 form.data['availability365'], form.data['cancellationPolicy'], form.data['bathrooms'], form.data['bedrooms'], form.data['beds'],
+                 form.data['accomodates'], form.data['guestsIncluded'], form.extraPeople, form.apartmentDeposit)
+
     xAmenities = pseudoOneHotEncodingJSONAmenities(stringAmenities,form.amenities)
     xVerification = pseudoOneHotEncodingJSONVerifications(stringVerifications,form.verificationUser)
     xNeighborhoods = pseudoOneHotEncodingJSON(stringNeighborhoods,(int(form.data['neighborhood'])-1))
@@ -196,4 +202,49 @@ def parseStringAm(a):
         return 'wheelchair'
     return a
 
+def get_coordinates(address_string):
+    '''This function finds the latitude and longitude given an address string.
+    If no address is found returs 0,0 (location in the ocean)
+    It does not privide more than one result'''
+    g = geocoders.Nominatim()
+    try:
+        location = g.geocode(address_string, timeout=10,exactly_one=True)
+        if location is None:
+            return 0,0
+        else:
+            return location.latitude, location.longitude
+    except:
+        return 0,0
+
+def find_mydistance(lat,lng,filename,neighbors_number=100):
+    '''This function finds the first neighbors to a point given a set of coordinates from a file.
+        It calclutates the distance from the chosen point to all the neighbors,
+        and returns the median distance to the neighbors'''
+    data=pd.read_csv(filename, sep=";")
+    neigh = NearestNeighbors(n_neighbors=neighbors_number, metric='euclidean', n_jobs=-1)
+    neigh.fit(data.loc[:,('latitude','longitude')])
+    my_coordinates=np.array([lat, lng])
+    my_neighbors=neigh.kneighbors(my_coordinates.reshape(1, -1),neighbors_number, return_distance=False)
+    d_meters=np.zeros(neighbors_number)
+    counter=0
+    for i in my_neighbors[0,:]:
+        lat_long_neigh=np.array([data.iloc[i].latitude, data.iloc[i].longitude])
+        d_meters[counter]=vincenty(my_coordinates,lat_long_neigh).meters
+        counter=counter+1
+    return np.median(d_meters)
+
+def check_mypos(mydistance, control_parameter):
+    '''This function checks if the ditance of the point is within the chose accaptance range,
+    and returns a boolean value'''
+    return mydistance<control_parameter
+
+def checkLatitudeLong(latitude, longitude):
+    filename="siteApp/pklObjects/step2_output_neigh100threshold8.csv"
+    #the following bit could be useful if we try more than one city, otherwise just usening the file
+    #save_control_par 41 2.p in the pickle call will be enough, and much faster as you dont reload the data
+    data=pd.read_csv(filename, sep=";")
+    central_lat=np.mean(data.loc[:,('latitude')].values)
+    central_long=np.mean(data.loc[:,('longitude')].values)
+    control_parameter=pickle.load(open("siteApp\pklObjects\geo_outliers\save_control_par"+" %.0f %.0f.p"% (central_lat,central_long), "rb" ) )
+    return  check_mypos(find_mydistance(latitude,longitude,filename),control_parameter)
 #TODO

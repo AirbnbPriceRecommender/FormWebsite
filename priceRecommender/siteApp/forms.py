@@ -12,16 +12,26 @@ class AirbnbRequestForm(forms.Form):
 
     name = forms.CharField(max_length=200)
 
-    latitude = forms.CharField(max_length=20)
-    longitude = forms.CharField(max_length=20)
+    street = forms.CharField(max_length=100)
+    number = forms.IntegerField(min_value=1,max_value=1500)
 
     accomodates = forms.IntegerField(min_value=1,max_value=100)
     bathrooms = forms.IntegerField(min_value=0,max_value=12)
     bedrooms = forms.IntegerField(min_value=1, max_value=12)
     beds = forms.IntegerField(min_value=1, max_value=22)
     guestsIncluded = forms.IntegerField(min_value=0, max_value=22)
+    availability30 = forms.IntegerField(min_value=0, max_value=30)
+    availability60 = forms.IntegerField(min_value=0, max_value=60)
+    availability90 = forms.IntegerField(min_value=0, max_value=90)
+    availability365 = forms.IntegerField(min_value=0, max_value=365)
+    hostListingsCount = forms.IntegerField(min_value=1, max_value=500)
+
+    #booleanFields
     entireApartament = forms.BooleanField(required=False,initial=False)
     apartmentDeposit = forms.BooleanField(required=False,initial=False)
+    hostAbout = forms.BooleanField(required=False,initial=False)
+    hostIdentityVerified = forms.BooleanField(required=False,initial=False)
+    extraPeople = forms.BooleanField(required=False,initial=False)
 
 
     #selectors

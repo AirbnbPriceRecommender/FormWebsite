@@ -83,8 +83,15 @@ def helperTranformationPostalCode(street, number):
     result = get_geocode_location(street+" "+number+",Barcelona")
     if result is None:
         return ""
-    arrayResult = result.address.split(",")
-    return arrayResult[6]
+    digits = []
+    for s in result.address.split(","):
+        if s.replace(" ","").isdigit():
+            digits.append(s)
+    if len(digits)==1:
+        return digits[0]
+    if len(digits)>0:
+        return digits[1]
+    return ""
 
 #TODO helpers to move
 
@@ -140,17 +147,25 @@ def pseudoOneHotEncodingJSONVerifications(stringVerifications,verifications):
     out = ""
     aux = ""
     splitString = stringVerifications.split(',')
-    for item in splitString:
-        for v in verifications:
-            if ("verified_" + v.lower() == item):
-                aux = "\"{0}\":{1}".format(item, 1)
-                break;
-            else:
-                aux ="\"{0}\":{1}".format(item, 0)
-        out += aux
-        count += 1
-        if count < len(splitString):
-            out += ","
+    if len(verifications) == 0:
+        for item in splitString:
+            aux ="\"{0}\":{1}".format(item, 0)
+            out += aux
+            count += 1
+            if count < len(splitString):
+                out += ","
+    else:
+        for item in splitString:
+            for v in verifications:
+                if ("verified_" + v.lower() == item):
+                    aux = "\"{0}\":{1}".format(item, 1)
+                    break;
+                else:
+                    aux ="\"{0}\":{1}".format(item, 0)
+            out += aux
+            count += 1
+            if count < len(splitString):
+                out += ","
     return out
 
 def pseudoOneHotEncodingJSONAmenities(stringAmenities,amenities):
@@ -158,17 +173,25 @@ def pseudoOneHotEncodingJSONAmenities(stringAmenities,amenities):
     out = ""
     aux = ""
     splitString = stringAmenities.split(',')
-    for item in splitString:
-        for a in amenities:
-            if (parseStringAm(a) == item):
-                aux = "\"{0}\":{1}".format(item, 1)
-                break;
-            else:
-                aux ="\"{0}\":{1}".format(item, 0)
-        out += aux
-        count += 1
-        if count < len(splitString):
-            out += ","
+    if (len(amenities) == 0):
+        for item in splitString:
+            aux ="\"{0}\":{1}".format(item, 0)
+            out += aux
+            count += 1
+            if count < len(splitString):
+                out += ","
+    else:
+        for item in splitString:
+            for a in amenities:
+                if (parseStringAm(a) == item):
+                    aux = "\"{0}\":{1}".format(item, 1)
+                    break;
+                else:
+                    aux ="\"{0}\":{1}".format(item, 0)
+            out += aux
+            count += 1
+            if count < len(splitString):
+                out += ","
     return out
 
 def parseStringAm(a):

@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a60f4df2-6073-4f6d-a2c8-6cf5a27ad12b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/priceRecommender/siteApp/forms.py" afterPath="$PROJECT_DIR$/priceRecommender/siteApp/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/priceRecommender/siteApp/templates/siteApp/index.html" afterPath="$PROJECT_DIR$/priceRecommender/siteApp/templates/siteApp/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/priceRecommender/siteApp/templates/siteApp/results.html" afterPath="$PROJECT_DIR$/priceRecommender/siteApp/templates/siteApp/results.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/priceRecommender/priceRecommender/settings.py" afterPath="$PROJECT_DIR$/priceRecommender/priceRecommender/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/priceRecommender/siteApp/views.py" afterPath="$PROJECT_DIR$/priceRecommender/siteApp/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FormWebsite.iws" />
@@ -18,7 +19,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/FormWebsite$manage.coverage" NAME="manage Coverage Results" MODIFIED="1468343351550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/priceRecommender" />
+    <SUITE FILE_PATH="coverage/FormWebsite$manage.coverage" NAME="manage Coverage Results" MODIFIED="1468407974012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/priceRecommender" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -32,21 +33,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/priceRecommender/siteApp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="149" max-vertical-offset="2958">
-              <caret line="49" column="69" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="69" />
+            <state vertical-scroll-proportion="0.10033076" vertical-offset="2884" max-vertical-offset="3791">
+              <caret line="179" column="22" selection-start-line="179" selection-start-column="22" selection-end-line="179" selection-end-column="22" />
               <folding>
                 <element signature="e#15#65#0" expanded="true" />
-                <element signature="e#3486#3650#0" expanded="false" />
-                <element signature="e#7506#7807#0" expanded="false" />
-                <element signature="e#7891#8343#0" expanded="false" />
-                <element signature="e#8880#10021#0" expanded="false" />
-                <element signature="e#10651#11468#0" expanded="false" />
-                <element signature="e#11522#11687#0" expanded="false" />
-                <element signature="e#11737#12084#0" expanded="false" />
+                <element signature="e#3650#3814#0" expanded="false" />
+                <element signature="e#9602#10743#0" expanded="false" />
+                <element signature="e#11373#12190#0" expanded="false" />
+                <element signature="e#12244#12409#0" expanded="false" />
+                <element signature="e#12459#12806#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Anaconda2/Lib/site-packages/django/core/handlers/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3494" max-vertical-offset="4981">
+              <caret line="236" column="0" selection-start-line="236" selection-start-column="0" selection-end-line="236" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datastructures.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Anaconda2/Lib/site-packages/django/utils/datastructures.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1216" max-vertical-offset="5304">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,8 +93,30 @@
       <file leaf-file-name="results.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/priceRecommender/siteApp/templates/siteApp/results.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="697">
-              <caret line="28" column="74" selection-start-line="28" selection-start-column="74" selection-end-line="28" selection-end-column="74" />
+            <state vertical-scroll-proportion="-5.230769" vertical-offset="153" max-vertical-offset="799">
+              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#p#0;n#footer#0;n#body#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/priceRecommender/priceRecommender/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/priceRecommender/priceRecommender/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2159">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -84,17 +125,17 @@
       <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/priceRecommender/siteApp/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+            <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="969">
               <caret line="8" column="105" selection-start-line="8" selection-start-column="105" selection-end-line="8" selection-end-column="105" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/priceRecommender/siteApp/templates/siteApp/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.5482696" vertical-offset="1105" max-vertical-offset="4420">
+            <state vertical-scroll-proportion="32.692307" vertical-offset="1105" max-vertical-offset="4420">
               <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#section#0;n#body#0;n#!!top" expanded="true" />
@@ -127,13 +168,13 @@
         <option value="$PROJECT_DIR$/priceRecommender/siteApp/static/jquery-ui/jquery-ui.css" />
         <option value="$PROJECT_DIR$/priceRecommender/siteApp/admin.py" />
         <option value="$PROJECT_DIR$/priceRecommender/priceRecommender/urls.py" />
-        <option value="$PROJECT_DIR$/priceRecommender/priceRecommender/settings.py" />
         <option value="$PROJECT_DIR$/priceRecommender/siteApp/static/siteApp/staticJavascript.js" />
         <option value="$PROJECT_DIR$/priceRecommender/siteApp/pklObjects/save_control.p" />
-        <option value="$PROJECT_DIR$/priceRecommender/siteApp/views.py" />
-        <option value="$PROJECT_DIR$/priceRecommender/siteApp/templates/siteApp/results.html" />
         <option value="$PROJECT_DIR$/priceRecommender/siteApp/templates/siteApp/index.html" />
         <option value="$PROJECT_DIR$/priceRecommender/siteApp/forms.py" />
+        <option value="$PROJECT_DIR$/priceRecommender/priceRecommender/settings.py" />
+        <option value="$PROJECT_DIR$/priceRecommender/siteApp/views.py" />
+        <option value="$PROJECT_DIR$/priceRecommender/siteApp/templates/siteApp/results.html" />
       </list>
     </option>
   </component>
@@ -141,10 +182,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-27" />
-    <option name="y" value="204" />
+    <option name="x" value="-3" />
     <option name="width" value="1936" />
-    <option name="height" value="725" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -619,29 +659,29 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-27" y="204" width="1936" height="725" extended-state="0" />
+    <frame x="-3" y="0" width="1936" height="1057" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13854167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28005657" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13854167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25105485" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32288402" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20794149" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35423198" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -670,13 +710,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/priceRecommender/siteApp/views.py</url>
-          <line>122</line>
+          <line>129</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/priceRecommender/siteApp/views.py</url>
           <line>82</line>
           <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/priceRecommender/siteApp/views.py</url>
+          <line>89</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/priceRecommender/siteApp/views.py</url>
+          <line>145</line>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -686,14 +736,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="42" />
+      <option name="time" value="45" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="request.POST['datepicker']" language="Python" />
-        <watch expression="request.POST['datepickerValues']" language="Python" />
-        <watch expression="form.latitude" language="Python" />
-        <watch expression="form.longitude" language="Python" />
+        <watch expression="len(verifications)" language="Python" />
       </configuration>
     </watches-manager>
   </component>
@@ -732,13 +779,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#15#65#0" expanded="true" />
-            <element signature="e#3486#3650#0" expanded="false" />
-            <element signature="e#7506#7807#0" expanded="false" />
-            <element signature="e#7891#8343#0" expanded="false" />
-            <element signature="e#8880#10021#0" expanded="false" />
-            <element signature="e#10651#11468#0" expanded="false" />
-            <element signature="e#11522#11687#0" expanded="false" />
-            <element signature="e#11737#12084#0" expanded="false" />
+            <element signature="e#3650#3814#0" expanded="false" />
+            <element signature="e#9602#10743#0" expanded="false" />
+            <element signature="e#11373#12190#0" expanded="false" />
+            <element signature="e#12244#12409#0" expanded="false" />
+            <element signature="e#12459#12806#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -763,13 +808,11 @@
           <caret line="9" column="35" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="35" />
           <folding>
             <element signature="e#15#65#0" expanded="true" />
-            <element signature="e#3486#3650#0" expanded="false" />
-            <element signature="e#7506#7807#0" expanded="false" />
-            <element signature="e#7891#8343#0" expanded="false" />
-            <element signature="e#8880#10021#0" expanded="false" />
-            <element signature="e#10651#11468#0" expanded="false" />
-            <element signature="e#11522#11687#0" expanded="false" />
-            <element signature="e#11737#12084#0" expanded="false" />
+            <element signature="e#3650#3814#0" expanded="false" />
+            <element signature="e#9602#10743#0" expanded="false" />
+            <element signature="e#11373#12190#0" expanded="false" />
+            <element signature="e#12244#12409#0" expanded="false" />
+            <element signature="e#12459#12806#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -963,27 +1006,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Anaconda2/Lib/site-packages/django/utils/datastructures.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5212" max-vertical-offset="9299">
-          <caret line="323" column="0" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/priceRecommender/priceRecommender/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.361921" vertical-offset="0" max-vertical-offset="2159">
-          <caret line="81" column="3" selection-start-line="76" selection-start-column="2" selection-end-line="81" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/priceRecommender/priceRecommender/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="552">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/priceRecommender/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
@@ -1002,7 +1024,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7052402" vertical-offset="0" max-vertical-offset="1904">
           <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1043,38 +1064,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Anaconda2/Lib/site-packages/django/core/handlers/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.1" vertical-offset="2218" max-vertical-offset="4981">
-          <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/priceRecommender/siteApp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="149" max-vertical-offset="2958">
-          <caret line="49" column="69" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="69" />
-          <folding>
-            <element signature="e#15#65#0" expanded="true" />
-            <element signature="e#3486#3650#0" expanded="false" />
-            <element signature="e#7506#7807#0" expanded="false" />
-            <element signature="e#7891#8343#0" expanded="false" />
-            <element signature="e#8880#10021#0" expanded="false" />
-            <element signature="e#10651#11468#0" expanded="false" />
-            <element signature="e#11522#11687#0" expanded="false" />
-            <element signature="e#11737#12084#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/priceRecommender/siteApp/templates/siteApp/results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="697">
-          <caret line="28" column="74" selection-start-line="28" selection-start-column="74" selection-end-line="28" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/priceRecommender/siteApp/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
@@ -1085,10 +1074,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/priceRecommender/siteApp/templates/siteApp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5482696" vertical-offset="1105" max-vertical-offset="4420">
+        <state vertical-scroll-proportion="32.692307" vertical-offset="1105" max-vertical-offset="4420">
           <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#section#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/priceRecommender/priceRecommender/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/priceRecommender/priceRecommender/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2159">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Anaconda2/Lib/site-packages/django/utils/datastructures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1216" max-vertical-offset="5304">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Anaconda2/Lib/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3494" max-vertical-offset="4981">
+          <caret line="236" column="0" selection-start-line="236" selection-start-column="0" selection-end-line="236" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/priceRecommender/siteApp/templates/siteApp/results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769" vertical-offset="153" max-vertical-offset="799">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#p#0;n#footer#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/priceRecommender/siteApp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10033076" vertical-offset="2884" max-vertical-offset="3791">
+          <caret line="179" column="22" selection-start-line="179" selection-start-column="22" selection-end-line="179" selection-end-column="22" />
+          <folding>
+            <element signature="e#15#65#0" expanded="true" />
+            <element signature="e#3650#3814#0" expanded="false" />
+            <element signature="e#9602#10743#0" expanded="false" />
+            <element signature="e#11373#12190#0" expanded="false" />
+            <element signature="e#12244#12409#0" expanded="false" />
+            <element signature="e#12459#12806#0" expanded="false" />
           </folding>
         </state>
       </provider>
